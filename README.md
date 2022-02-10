@@ -1,7 +1,7 @@
 # What It Is
 Sublime Text plugin to perform some common text clean up: removing white space in different ways.
 
-Built for Windows and ST4. Other OSes and ST versions will require some hacking.
+Built for ST4 on Windows and Linux.
 
 ## Commands
 | Command                  | Implementation | Description |
