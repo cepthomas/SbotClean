@@ -4,18 +4,6 @@ import sublime_plugin
 
 
 #-----------------------------------------------------------------------------------
-def plugin_loaded():
-    # print(">>> SbotClean plugin_loaded()")
-    pass
-
-
-#-----------------------------------------------------------------------------------
-def plugin_unloaded():
-    # print("SbotClean plugin_unloaded()")
-    pass
-
-
-#-----------------------------------------------------------------------------------
 class SbotTrimCommand(sublime_plugin.TextCommand):
     '''sbot_trim how=leading|trailing|both'''
 
