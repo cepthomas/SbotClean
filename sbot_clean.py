@@ -81,7 +81,6 @@ def _get_sel_regions(view):
         regions = view.sel()
     else:
         settings = sublime.load_settings("SbotClean.sublime-settings")
-        print(settings)
         if settings.get('sel_all'):
             regions = [sublime.Region(0, view.size())]
     return regions
