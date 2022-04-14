@@ -2,6 +2,11 @@ import re
 import sublime
 import sublime_plugin
 
+try:
+    from SbotCommon.sbot_common import get_sel_regions
+except ModuleNotFoundError as e:
+    sublime.message_dialog('SbotClean plugin requires SbotCommon plugin')
+
 
 #-----------------------------------------------------------------------------------
 class SbotTrimCommand(sublime_plugin.TextCommand):
@@ -62,7 +67,8 @@ class SbotInsertLineIndexesCommand(sublime_plugin.TextCommand):
         width = len(str(line_count))
         offset = 0
 
-        for region in _get_sel_regions(self.view):
+        settings = sublime.load_settings(f"SbotClean.sublime-settings")
+        for region in get_sel_regions(self.view, settings):
             line_num = 1
             offset = 0
             for line_region in self.view.split_by_newlines(region):
@@ -74,23 +80,10 @@ class SbotInsertLineIndexesCommand(sublime_plugin.TextCommand):
 
 
 #-----------------------------------------------------------------------------------
-def _get_sel_regions(view):
-    ''' Function to get selections or optionally the whole view.'''
-    regions = []
-    if len(view.sel()[0]) > 0:  # user sel
-        regions = view.sel()
-    else:
-        settings = sublime.load_settings("SbotClean.sublime-settings")
-        if settings.get('sel_all'):
-            regions = [sublime.Region(0, view.size())]
-    return regions
-
-
-#-----------------------------------------------------------------------------------
 def _do_sub(view, edit, reo, sub):
     # Generic substitution function.
-    sels = _get_sel_regions(view)
-    for sel in sels:
-        orig = view.substr(sel)
+    settings = sublime.load_settings(f"SbotClean.sublime-settings")
+    for region in get_sel_regions(self.view, settings):
+        orig = view.substr(region)
         new = reo.sub(sub, orig)
-        view.replace(edit, sel, new)
+        view.replace(edit, region, new)
