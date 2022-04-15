@@ -83,7 +83,7 @@ class SbotInsertLineIndexesCommand(sublime_plugin.TextCommand):
 def _do_sub(view, edit, reo, sub):
     # Generic substitution function.
     settings = sublime.load_settings(f"SbotClean.sublime-settings")
-    for region in get_sel_regions(self.view, settings):
+    for region in get_sel_regions(view, settings):
         orig = view.substr(region)
         new = reo.sub(sub, orig)
         view.replace(edit, region, new)
