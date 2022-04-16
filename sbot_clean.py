@@ -5,7 +5,7 @@ import sublime_plugin
 try:
     from SbotCommon.sbot_common import get_sel_regions
 except ModuleNotFoundError as e:
-    sublime.message_dialog('SbotClean plugin requires SbotCommon plugin')
+    raise ImportError('SbotClean plugin requires SbotCommon plugin')
 
 
 #-----------------------------------------------------------------------------------
