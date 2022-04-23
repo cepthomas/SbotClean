@@ -3,8 +3,8 @@ import sublime
 import sublime_plugin
 
 try:
-    from SbotCommon.sbot_common import get_sel_regions, log_message
-except ModuleNotFoundError as e:
+    from SbotCommon.sbot_common import get_sel_regions, slog
+except ModuleNotFoundError:
     raise ImportError('SbotClean plugin requires SbotCommon plugin')
 
 
@@ -67,7 +67,7 @@ class SbotInsertLineIndexesCommand(sublime_plugin.TextCommand):
         width = len(str(line_count))
         offset = 0
 
-        settings = sublime.load_settings(f"SbotClean.sublime-settings")
+        settings = sublime.load_settings("SbotClean.sublime-settings")
         for region in get_sel_regions(self.view, settings):
             line_num = 1
             offset = 0
@@ -82,7 +82,7 @@ class SbotInsertLineIndexesCommand(sublime_plugin.TextCommand):
 #-----------------------------------------------------------------------------------
 def _do_sub(view, edit, reo, sub):
     # Generic substitution function.
-    settings = sublime.load_settings(f"SbotClean.sublime-settings")
+    settings = sublime.load_settings("SbotClean.sublime-settings")
     for region in get_sel_regions(view, settings):
         orig = view.substr(region)
         new = reo.sub(sub, orig)
