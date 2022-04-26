@@ -1,9 +1,10 @@
 # What It Is
+
 Sublime Text plugin to perform some common text clean up: removing white space in different ways.
 
 Built for ST4 on Windows and Linux.
 
-Requires SbotCommon plugin.
+Requires [SbotCommon](https://github.com/cepthomas/SbotCommon) plugin.
 
 ## Commands
 | Command                    | Implementation | Description               | Args                   |
