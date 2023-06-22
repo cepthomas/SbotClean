@@ -5,11 +5,11 @@ Sublime Text plugin to perform some common text clean up: removing white space i
 Built for ST4 on Windows and Linux.
 
 ## Commands
-| Command                    | Type     | Description               | Args                                                                    |
-| :--------                  | :------- | :-------                  | :-------                                                                |
-| sbot_trim                  | Context  | Remove ws from Line ends  | how = leading OR trailing OR both                                       |
-| sbot_remove_empty_lines    | Context  | Like it says              | how = remove_all (all lines) OR normalize (compact to one)              |
-| sbot_remove_ws             | Context  | Like it says              | how = remove_all (all ws) OR keep_eol OR normalize (compact to one ws   |
+| Command                    | Type     | Description               | Args                                                                         |
+| :--------                  | :------- | :-------                  | :-------                                                                     |
+| sbot_trim                  | Context  | Remove ws from Line ends  | how: "leading" OR "trailing" OR "both"                                       |
+| sbot_remove_empty_lines    | Context  | Like it says              | how: "remove_all" (all lines) OR "normalize" (compact to one)                |
+| sbot_remove_ws             | Context  | Like it says              | how: "remove_all" (all ws) OR "keep_eol" OR "normalize" (compact to one ws   |
 
 ## Settings
 | Setting            | Description         | Options                                                               |
