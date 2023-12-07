@@ -1,7 +1,6 @@
 [
     { "caption": "-" },
-    {
-        "caption": "Clean",
+    { "caption": "Clean",
         "children":
         [
             { "caption": "Trim Leading WS", "command": "sbot_trim", "args" : {"how" : "leading"}  },
